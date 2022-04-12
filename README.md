@@ -1,4 +1,14 @@
 # Compiladores1
+#UNIVERSIDADE FEDERAL DE MATO GROSSO DO SUL
+##FACOM - FACULDADE DE COMPUTAÇÃO
+##COMPILADORES I - 2022/1
+##PROFA. BIANCA DE ALMEIDA DANTAS
+##DISCENTES:
+##GUILHERME ...
+##ISAAC KOSLOSKI 2019.1905.019-1
+##LARISSA ...
+
 Git para o trabalho de compiladores 1
 Dividido por etapas.
 Parte 1: Análise Léxica.
+
