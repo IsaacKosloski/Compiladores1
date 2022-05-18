@@ -4,7 +4,7 @@
 
 //Construtor que recebe uma string com o nome do arquivo 
 //de entrada e preenche input com seu conteúdo.
-Scanner::Scanner(string input, SymbolTable* table)
+Scanner::Scanner(string input/*, SymbolTable* table*/)
 {
     /*this->input = input;
     cout << "Entrada: " << input << endl << "Tamanho: " 
@@ -12,7 +12,7 @@ Scanner::Scanner(string input, SymbolTable* table)
     pos = 0;
     line = 1;
 
-    st = table;
+    //st = table;
 
     ifstream inputFile(input, ios::in);
     string line;
@@ -31,6 +31,7 @@ Scanner::Scanner(string input, SymbolTable* table)
     cout << this->input;
 
 }
+
 int Scanner::getLine()
 {
     return line;
