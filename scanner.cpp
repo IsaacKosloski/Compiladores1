@@ -4,21 +4,33 @@
 
 //Construtor que recebe uma string com o nome do arquivo 
 //de entrada e preenche input com seu conteúdo.
-Scanner::Scanner(string input/*, SymbolTable* table*/)
+Scanner::Scanner(string input, SymbolTable* table)
 {
-    this->input = input;
-    cout << "Entrada: " << input << endl << "Tamanho: "
-        << input.length() << endl;
+    /*this->input = input;
+    cout << "Entrada: " << input << endl << "Tamanho: " 
+         << input.length() << endl;*/
     pos = 0;
     line = 1;
 
-    //A próxima linha deve ser comentada posteriormente.
-    //Ela é utilizada apenas para verificar se o 
-    //preenchimento de input foi feito corretamente.
+    st = table;
+
+    ifstream inputFile(input, ios::in);
+    string line;
+
+    if (inputFile.is_open())
+    {
+        while (getline(inputFile,line) )
+        {
+            this->input.append(line + '\n');
+        }
+        inputFile.close();
+    }
+    else 
+        cout << "Unable to open file\n"; 
+
     cout << this->input;
 
 }
-
 int Scanner::getLine()
 {
     return line;
