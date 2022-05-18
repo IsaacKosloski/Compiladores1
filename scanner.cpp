@@ -193,10 +193,19 @@ Scanner::nextToken()
             }
             // ID
             else if (isalpha(input[pos]) || input[pos] == '_') {
+                pos++;
                 while (isalpha(input[pos]) || isdigit(input[pos]) || input[pos] == '_')
                     pos++;
                 tok = new Token(ID);
             }
+            //String
+            else if (input[pos] == '"') {
+                pos++;
+                while(input[pos++] != '"')
+                    pos++;
+                tok = new Token(STRING_LITERAL);
+            }
+            //final de arquivo
             else if (input[pos] == '\0')
                 tok = new Token(END_OF_FILE);
             return tok;
