@@ -19,6 +19,7 @@ Scanner::Scanner(string input/*, SymbolTable* table*/)
 
     if (inputFile.is_open())
     {
+        //ignora espaço em branco
         while (getline(inputFile,line) )
         {
             this->input.append(line + '\n');
