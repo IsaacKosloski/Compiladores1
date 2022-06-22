@@ -41,7 +41,7 @@ Parser::run()
 
 	program();
 
-	cout << "Compilação encerrada com sucesso!\n";
+	cout << "CompilaÃ§Ã£o encerrada com sucesso!\n";
 }
 
 void
@@ -51,6 +51,30 @@ Parser::initSimbolTable() {
 
 	t = new Token(CLASS);
 	globalST->add(new STEntry(t, "class", true));
+	t = new Token(EXTENDS);
+	globalST->add(new STEntry(t,"extends",true));
+	t = new Token(INT);
+	globalST->add(new STEntry(t,"int",true));
+	t = new Token(STRING);
+	globalST->add(new STEntry(t,"string",true));
+	t = new Token(BREAK);
+	globalST->add(new STEntry(t,"break",true));
+	t = new Token(PRINT);
+	globalST->add(new STEntry(t,"print",true));
+	t = new Token(READ);
+	globalST->add(new STEntry(t,"read",true));
+	t = new Token(RETURN);
+	globalST->add(new STEntry(t,"return",true));
+	t = new Token(IF);
+	globalST->add(new STEntry(t,"if",true));
+	t = new Token(ELSE);
+	globalST->add(new STEntry(t,"else",true));
+	t = new Token(FOR);
+	globalST->add(new STEntry(t,"for",true));
+	t = new Token(NEW);
+	globalST->add(new STEntry(t,"new",true));
+	t = new Token(CONSTRUCTOR);
+	globalST->add(new STEntry(t,"constructor",true));
 
 }
 
