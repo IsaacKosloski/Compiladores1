@@ -12,3 +12,6 @@ Git para o trabalho de compiladores 1
 Dividido por etapas.
 Parte 1: Análise Léxica.
 
+https://docs.google.com/document/d/1UPOxbmUAYkIUT7Obt3yQE8fEEUsor3pn0pSeOjoa9eE/edit?usp=sharing
+Gramática sem recursão à esquerda.
+
