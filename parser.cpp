@@ -430,15 +430,163 @@ Parser::statement()
 		match(SEMICOLON);
 	}
 }
-void
-Parser::atribStat() {
-}
-void
-Parser::expression() {
-}
-void
-Parser::lValue() {
+/*23. AtribStat → LValue = Expression
+| LValue = AllocExpression*/
 
+void
+Parser::atribStat() 
+{
+
+}
+
+/*24. PrintStat → print Expression*/
+/*25. ReadStat → read LValue*/
+/*26. ReturnStat → return Expression*/
+/*27. SuperStat → super ( ArgListOpt )*/
+/*28. IfStat → if ( Expression ) { Statements }
+| if ( Expression ) { Statements } else { Statements }*/
+
+/*29. ForStat → for ( AtribStatOpt ; ExpressionOpt ; AtribStatOpt ) { Statements }*/
+/*30. AtribStatOpt → AtribStat
+| epsolon*/
+/*31. ExpressionOpt → Expression
+| epsolon*/
+/*32. LValue → ID LValueComp
+| ID [ Expression ] LValueComp*/
+void
+Parser::lValue() 
+{
+
+}
+/*33. LValueComp → . ID LValueComp
+| . ID [ Expression ] LValueComp
+| epsolon*/
+void
+Parser::lValueComp()
+{
+	
+}
+/*34. Expression → NumExpression
+| NumExpression RelOp NumExpression*/
+void
+Parser::expression() 
+{
+
+}
+/*35. AllocExpression → new ID ( ArgListOpt )
+| Type [ Expression ]*/
+void
+Parser::allocexpression() 
+{
+
+}
+
+/*36. NumExpression → Term + Term
+| Term - Term
+| Term*/
+void
+Parser::numExpression()
+{
+	term();
+	if (lToken->name == ADDITION)
+	{
+		match(ADDITION);
+		term();
+	}
+	else if (lToken->name == SUBTRACTION)
+	{
+		match(SUBTRACTION);
+		term();
+	}
+}
+
+/*37. Term → UnaryExpression * UnaryExpression
+| UnaryExpression / UnaryExpression
+| UnaryExpression % UnaryExpression
+| UnaryExpression
+*/
+void
+Parser::term()
+{
+	unaryExpression(); 
+	if (lToken->name == ASTERISK)
+	{
+		match(ASTERISK);
+		unaryExpression();
+	}
+	else if (lToken->name == BAR)
+	{
+		match(BAR);
+		unaryExpression();
+	}
+	else if (lToken->name == MODULAR)
+	{
+		match(MODULAR);
+		unaryExpression();
+	}
+}
+
+/*38. UnaryExpression → + Factor
+| - Factor*/
+void
+Parser::unaryExpression()
+{
+	if(lToken->name == ADDITION)
+		match(ADDITION);
+	else
+		match(SUBTRACTION)
+	factor();
+}
+
+/*39. Factor → INTEGER_LITERAL
+| STRING_LITERAL
+| LValue
+| ( Expression )*/
+void
+Parser::factor()
+{
+	if (lToken->name == INTEGER_LITERAL)
+		match(INTEGER_LITERAL);
+	else if (lToken->name == STRING_LITERAL)
+		match(STRING_LITERAL);
+	else if (lToken->name == ID)
+			lvalue();
+	else if (lToken->name == LEFT_PARENTHESE)
+	{
+		match(LEFT_PARENTHESE);
+		expression();
+		match(RIGHT_PARENTHESE);
+	}
+}
+
+/*40. ArgListOpt → ArgList
+| epsolon*/
+void
+Parser::argListOpt()
+{
+	if (lToken->name == ADDITION || lToken->name == SUBTRACTION)
+		argList();
+}
+
+/*41. ArgList → Expression ArgListComma*/
+void
+Parser::argList()
+{
+	expression();
+	argListComma();
+}
+
+/*41.1.ArgListComma → , Expression ArgListComma
+|epsolon*/
+void
+Parser::argListComma()
+{
+	if (lToken->name == COMMA_LITERAL)
+	{
+		match(COMMA_LITERAL);
+		expression();
+		argListComma();
+	}
 }
 
 void
