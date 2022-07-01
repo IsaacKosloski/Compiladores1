@@ -217,6 +217,7 @@ Scanner::nextToken()
                     tok = new Token(ID);
                     STEntry* IDreserved;
                     IDreserved = new STEntry(tok, lexeme, true);
+                    add(IDreserved);
                 }
                 else
                     tok = new Token(obj->token->name);
