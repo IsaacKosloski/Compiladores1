@@ -1,0 +1,120 @@
+/***************************************************
+Esse programa implementa uma árvore de busca binária
+***************************************************/
+
+class bintree { /* define o nó da árvore binária */
+
+class data { // define um classe aninhada do tipo data (dia, mes, ano)
+int dia, mes, ano;
+
+constructor() // construtor 1, sem parâmetros
+{
+	ano 1900; // inicializa em 1/1/1900
+	mes = 1;
+	dia 1;
+
+}
+
+constructor (int d, int m, int a) // construtor 2 dia, mês e ano como
+{			// parâmetros
+
+	dia d;
+	mes m;
+	ano a;
+
+}
+
+int compara(data x) // compara duas datas
+{		// retorna < 0 menor > O maior 0 igual
+
+	if (ano < x.ano) then return -1;
+	if (ano > x.ano) then return 1;
+	if (men < x.mes) then return -1; if (mes > x.mes) then return 1;
+	if (dia < x.dia) then return -1;
+	if (dia > x.dia) then return 1;
+	return 0;
+
+}
+
+}// final classe data
+
+// variáveis da classe bintree
+
+data key; // chave de comparação
+bintree left, right; // referência para os filhos
+
+constructor (data x)
+{
+
+	key = x;
+	left = null;
+	right null;
+}
+
+int insert(data k) // adiciona um elemento na árvore
+{
+int x;
+
+	x = k.compara (key);
+	if (x < 0) then
+	{
+		if (left != null)
+			then return left.insert(k);
+		left new bintree (k);
+		return 1;
+	}
+
+	if (x 0) then
+	{
+	if (right != null)
+		then return right.insert(k);
+	right new bintree (k);
+	return 1;
+	}
+	return 0;
+}
+
+int treeprint (int x) // imprime a árvore
+
+int i;
+
+	if (left != null)
+		then i left.treeprint (x+4);
+	for (i=0; i < x; i = i + 1)
+		print " ";
+	print key.dia+"/"+ key.mes+"/"+ key, ano+ "\n";
+	if (right != null)
+		then i right.treeprint (x+4);
+}
+
+int start()
+{
+bintree t
+int i, d, m, a;
+data w;
+
+	print "Digite o dia: ";
+	read d;
+print "Digite o mes: ";
+read m;
+print "Digite o ano: ";
+read a;
+new data(d, m, a);
+t = new bintree(w);
+for (i=0; i<10; i = i + 1)
+{
+	print "Digite o dia: ";
+	read d;
+	print "Digite o mes: ";
+	read m;
+	print "Digite o ano: ";
+	read a;
+	w new data(d, m, a);
+	if (t.insert(v) == 0)
+		then print "Elemento ja existe\n";
+}
+it.treeprint(0);
+return 0;
+}
+
+}
